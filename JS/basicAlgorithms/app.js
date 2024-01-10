@@ -202,7 +202,7 @@ const rickAndMortyCharacters2 = ["Rick", "Beth", "Jerry", "Morty", "Summer", "La
 rickAndMortyCharacters2.pop();
 //console.log (rickAndMortyCharacters2);
 
-let uno = rickAndMortyCharacters2[0]
+let uno = rickAndMortyCharacters2[0];
 let last = rickAndMortyCharacters2[rickAndMortyCharacters2.length-1];
 console.log (uno , last);
 
@@ -213,3 +213,70 @@ const rickAndMortyCharacters3 = ["Rick", "Beth", "Jerry", "Morty", "Summer", "La
 let elim2 = rickAndMortyCharacters3.splice(1, 1);
 //console.log (elim2);
 console.log (rickAndMortyCharacters3);
+
+
+
+/*Iteración #5: Condicionales
+En base al código siguiente, muestra los mensajes correctos por consola.
+const number1 = 10;
+const number2 = 20;
+const number3 = 2;
+
+
+if(number1 === 10){
+    console.log('number1 es estrictamente igual a 10')
+}
+
+if () {
+  console.log("number2 dividido entre number1 es igual a 2");
+}
+
+if () {
+  console.log("number1 es estrictamente distinto a number2");
+}
+
+if () {
+  console.log("number3 es distinto number1");
+}
+
+if () {
+  console.log("number3 por 5 es igual a number1");
+}
+
+if (/) {
+  console.log("number3 por 5 es igual a number1 Y number1 por 2 es igual a number2");
+}
+
+if () {
+  console.log("number2 entre 2 es igual a number1 O number1 entre 5 es igual a number3");
+}*/
+
+
+const number1 = 10;
+const number2 = 20;
+const number3 = 2;
+
+if (number2/number1 == 2) {
+	console.log("number2 dividido entre number1 es igual a 2");
+  };
+
+if (number1!==number2) {
+	console.log("number1 es estrictamente distinto a number2");
+  };
+
+if (number3 != number1) {
+	console.log("number3 es distinto number1");
+  };
+
+if (number3 * 5 == number1) {
+	console.log("number3 por 5 es igual a number1");
+  };
+
+if (number3 * 5 == number1 && number1 * 2 == number2) {
+  console.log("number3 por 5 es igual a number1 Y number1 por 2 es igual a number2");
+  };
+
+if (number2 / 2 == number1 || number1 / 5 == number3 ) {
+	console.log("number2 entre 2 es igual a number1 O number1 entre 5 es igual a number3");
+  };
+  
