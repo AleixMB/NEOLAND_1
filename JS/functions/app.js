@@ -8,7 +8,7 @@ function sum(numberOne , numberTwo) {
 }
 ```*/
 
-function sum(numberOne , numberTwo) {
+function sum (numberOne , numberTwo) {
     console.log(Math.max(numberOne, numberTwo));
 };
 
@@ -33,7 +33,7 @@ function findLongestWord(param) {
 
 const avengers = ['Hulk', 'Thor', 'IronMan', 'Captain A.', 'Spiderman', 'Captain M.'];
 function findLongestWord(avengers) {
-  let mayor = avengers[0];
+  let mayor = avengers[0]; 
   for (i=0; i<avengers.length; i++){
     if(avengers[i].length > mayor.length){
       mayor = avengers[i];
@@ -42,6 +42,7 @@ function findLongestWord(avengers) {
   return mayor;
 }
 console.log (findLongestWord(avengers));
+
 
 
 
@@ -223,6 +224,16 @@ function repeatCounter(param) {
 ```*/
 
 const counterWords = ['code','repeat','eat','sleep','code','enjoy','sleep','code','enjoy','upgrade','code'];
-function repeatCounter(param) {
-  // insert code
+function repeatCounter(array, value) {
+  let repeticiones = 0;
+  for (let i = 0; i < array.length; i++) {
+    //console.log("El valor de array en posicion de i", array[i])
+    if (array[i] == value) {
+      repeticiones++
+      //console.log("repeticiones", repeticiones)
+    }
+  }
+ return repeticiones
 }
+const resultadorRepeticiones = repeatCounter(counterWords, 'enjoy');
+console.log(resultadorRepeticiones);
