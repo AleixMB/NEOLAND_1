@@ -34,7 +34,7 @@ function findLongestWord(param) {
 const avengers = ['Hulk', 'Thor', 'IronMan', 'Captain A.', 'Spiderman', 'Captain M.'];
 function findLongestWord(avengers) {
   let mayor = avengers[0]; 
-  for (i=0; i<avengers.length; i++){
+  for (let i=0; i<avengers.length; i++){
     if(avengers[i].length > mayor.length){
       mayor = avengers[i];
     }
@@ -65,7 +65,7 @@ const numbers = [1, 2, 3, 5, 45, 37, 58];
 
 function sumAll(numbers) {
   let numeroSumado = numbers[0];
-  for (i = 1; i < numbers.length; i++){
+  for (let i = 1; i < numbers.length; i++){
     numeroSumado = numbers[i] + numeroSumado;
   };
   return numeroSumado;
@@ -87,7 +87,7 @@ function average(param) {
 const numbers1 = [12, 21, 38, 5, 45, 37, 6];
 function average(numbers1) {
   let numeroSumado1 = numbers1[0];
-  for (i = 1; i < numbers1.length; i++){
+  for (let i = 1; i < numbers1.length; i++){
     numeroSumado1 = numbers1[i] + numeroSumado1;
   };
   return numeroSumado1;
