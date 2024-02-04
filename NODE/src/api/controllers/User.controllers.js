@@ -1,7 +1,8 @@
-const { deleteImgCloudinary } = require("../../middleware/files.middleware");
-const randomCode = require("../../utils/randomCode");
-const User = require("../models/User.model");
 
+const { deleteImgCloudinary } = require("../../middleware/files.middleware");
+const User = require("../models/User.model");
+const randomCode = require("../../utils/randomCode");
+const sendEmail = require("../../utils/sendEmail");
 const nodemailer = require("nodemailer");
 const validator = require("validator");
 const bcrypt = require("bcrypt");
@@ -10,7 +11,7 @@ const {
   setTestEmailSend,
   getTestEmailSend,
 } = require("../../state/state.data");
-
+const { generateToken } = require("../../utils/token");
 dotenv.config();
 
 //? ----------------------------REGISTER LARGO EN CODIGO ------------------------000
@@ -260,4 +261,4 @@ const sendCode = async (req, res, next) => {
   }
 };
   
-module.exports = { registerLargo, register, sendCode, registerWithRedirect };0
+module.exports = { registerLargo, register, sendCode, registerWithRedirect };

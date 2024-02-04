@@ -4,7 +4,7 @@ const nodemailer = require("nodemailer");
 const { setTestEmailSend } = require("../state/state.data");
 
 const sendEmail = (userEmail, name, confirmationCode) => {
-  /**^reseteo el estado a false ---> es el estado inicial */
+  //reseteo el estado a false ---> es el estado inicial 
   setTestEmailSend(false);
   const email = process.env.EMAIL;
   const password = process.env.PASSWORD;
@@ -36,4 +36,3 @@ const sendEmail = (userEmail, name, confirmationCode) => {
 };
 
 module.exports = sendEmail;
-0
