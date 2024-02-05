@@ -261,6 +261,10 @@ const sendCode = async (req, res, next) => {
   }
 };
 
+//! ----------------------------------------------------------------------------
+//? ------------------------------LOGIN ----------------------------------------
+//! ----------------------------------------------------------------------------
+
 const login = async (req, res, next) => {
   try { 
     const { email, password } = req.body;
@@ -283,4 +287,55 @@ const login = async (req, res, next) => {
   }
 };
   
-module.exports = { registerLargo, register, sendCode, registerWithRedirect, login };
+
+
+//! -----------------------------------------------------------------------------
+//? -----------------------RESEND CODE -----------------------------
+//! -----------------------------------------------------------------------------
+
+const resendCode = async (req, res, next) => {
+  try {
+    //! vamos a configurar nodemailer porque tenemos que enviar un codigo
+    const email = process.env.EMAIL;
+    const password = process.env.PASSWORD;
+    const transporter = nodemailer.createTransport({
+      service: "gmail",
+      auth: {
+        user: email,
+        pass: password,
+      },
+    });
+
+    //! hay que ver que el usuario exista porque si no existe no tiene sentido hacer ninguna verificacion
+    const userExists = await User.findOne({ email: req.body.email });
+
+    if (userExists) {
+      const mailOptions = {
+        from: email,
+        to: req.body.email,
+        subject: "Confirmation code",
+        text: `tu codigo es ${userExists.confirmationCode}`,
+      };
+
+      transporter.sendMail(mailOptions, (error, info) => {
+        if (error) {
+          console.log(error);
+          return res.status(404).json({ //Lo mas correcto teoricamente seria poner el 404 pero ira mal en el futuro habra que poner 200
+            resend: false,
+          });
+        } else {
+          console.log("Email sent: " + info.response);
+          return res.status(200).json({
+            resend: true,
+          });
+        }
+      });
+    } else {
+      return res.status(404).json("User not found");
+    }
+  } catch (error) {
+    return next(setError(500, error.message || "Error general send code"));
+  }
+};
+
+module.exports = { registerLargo, register, sendCode, registerWithRedirect, login, resendCode };
