@@ -37,6 +37,12 @@ app.use(express.urlencoded({ limit: "5mb", extended: false }));
 const UserRoutes = require("./src/api/routes/User.routes");
 app.use("/api/v1/users/", UserRoutes);
 
+const PlayerRoutes = require("./src/api/routes/Player.routes");
+app.use("/api/v1/players/", PlayerRoutes);
+
+const TeamRoutes = require("./src/api/routes/Team.routes");
+app.use("/api/v1/teams/", TeamRoutes);
+
 //! -------------------> generamos un error de cuando no see encuentre la ruta
 app.use("*", (req, res, next) => {
   const error = new Error("Route not found");
